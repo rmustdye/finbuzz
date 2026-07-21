@@ -1,0 +1,36 @@
+{
+  "levelR": -0.033,
+  "levelP": 0.806,
+  "chgR": -0.151,
+  "chgP": 0.258,
+  "totalReturn": 5.8,
+  "peakDate": "2025-10-07",
+  "peakScore": 100,
+  "minScore": 18,
+  "dipsBelow20": 1,
+  "rollMin": -0.64,
+  "rollMax": 0.76,
+  "lagNoise": true,
+  "sigLags": 2,
+  "artifactNote": "Sep 11\u2013Sep 15",
+  "crossCheck": {
+    "disagree": 31,
+    "total": 59,
+    "maxDiff": 2
+  },
+  "keyword": "AI stocks",
+  "ticker": "NVDA",
+  "assetName": "NVIDIA (NVDA)",
+  "windowStart": "2025-08-25",
+  "windowEnd": "2025-11-14",
+  "tradingDays": 59,
+  "calendarDays": 93,
+  "spanLabel": "3 months",
+  "generated": "2026-07-21",
+  "priceSource": "FinBuzz_Merged_Data_FINAL.csv (original Colab export)",
+  "trendsSource": "Google Trends, US, web search (3 months export)",
+  "hashes": {
+    "trends": "0ab6c6dde730313c",
+    "prices": "814401fcb64f23c5"
+  }
+}
