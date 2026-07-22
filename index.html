@@ -4,13 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FinBuzz - Search attention vs. market reality</title>
-<meta name="description" content="A self-built market research engine testing whether Google search interest tracks NVIDIA's price.">
+<meta name="description" content="A self-built market research engine testing whether Google search interest tracks NVIDIA's price across two independent windows.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script>
-window.FINBUZZ = {
-  "meta":{"keyword":"AI stocks","ticker":"NVDA","assetName":"NVIDIA (NVDA)","windowStart":"2026-04-24","windowEnd":"2026-07-21","tradingDays":60,"calendarDays":89,"spanLabel":"3 months","generated":"2026-07-22","priceSource":"yfinance (adjusted close)","trendsSource":"Google Trends, US (3 months)","hashes":{"trends":"5de0061367098295","prices":"7f9fce603d8f1669"}},
+window.FB1 = {
+  "meta":{"keyword":"AI stocks","ticker":"NVDA","label":"No. 001","period":"Aug-Nov 2025","windowStart":"2025-08-25","windowEnd":"2025-11-14","tradingDays":59,"calendarDays":93,"spanLabel":"3 months","hashes":{"trends":"0ab6c6dde7303138","prices":"814401fcb64f23c5"}},
+  "series":{
+    "dates":["2025-08-25","2025-08-26","2025-08-27","2025-08-28","2025-08-29","2025-09-02","2025-09-03","2025-09-04","2025-09-05","2025-09-08","2025-09-09","2025-09-10","2025-09-11","2025-09-12","2025-09-15","2025-09-16","2025-09-17","2025-09-18","2025-09-19","2025-09-22","2025-09-23","2025-09-24","2025-09-25","2025-09-26","2025-09-29","2025-09-30","2025-10-01","2025-10-02","2025-10-03","2025-10-06","2025-10-07","2025-10-08","2025-10-09","2025-10-10","2025-10-13","2025-10-14","2025-10-15","2025-10-16","2025-10-17","2025-10-20","2025-10-21","2025-10-22","2025-10-23","2025-10-24","2025-10-27","2025-10-28","2025-10-29","2025-10-30","2025-10-31","2025-11-03","2025-11-04","2025-11-05","2025-11-06","2025-11-07","2025-11-10","2025-11-11","2025-11-12","2025-11-13","2025-11-14"],
+    "trend":[75,73,70,67,59,69,76,73,62,76,71,68,39,67,26,67,62,72,69,64,81,71,74,72,63,73,73,68,67,75,100,81,74,68,66,72,72,64,58,62,73,64,60,59,58,60,63,57,55,53,49,50,47,48,42,43,41,39,18],
+    "trendMa7":[75,74,72.7,71.3,68.8,68.8,69.7,71,70,70.1,71.6,70.4,67,65.3,58.4,57.1,57.3,60.3,62.6,61.4,63.3,65.6,70.1,71.9,70.6,71.1,72.4,70.6,70,70.1,75.1,77.9,76.7,73.9,72.6,72.4,74.7,73.9,67.7,66,66.6,65.4,64.3,62.9,62.3,62.6,62.4,60,58.6,57.9,56.4,55.4,53.4,51.3,49.1,47.4,45.7,43.1,37.1],
+    "price":[128.74,128.86,127.67,121.41,119.1,116.32,107.19,107.21,108.27,106.66,104.28,107.36,116.78,119.32,116.54,116.79,116.1,116,118.78,114.3,120.87,121.4,119.31,121.35,122.44,121.18,118.56,124.04,122.2,132.65,137.71,132.35,132.43,131.6,134.35,138.09,135.4,137.19,140.15,143.81,141.31,141.26,143.59,141.37,139.48,142.44,144.24,141.56,135.38,140.26,139.91,144.08,148.87,147.63,148.79,149.43,147.22,146.05,136.37],
+    "rollCorr":[null,null,null,null,null,null,null,null,null,null,null,null,null,0.262,0.197,0.046,-0.085,-0.136,-0.175,-0.242,-0.249,-0.296,-0.443,-0.506,-0.53,-0.587,-0.729,-0.731,-0.738,-0.593,-0.418,-0.353,-0.323,-0.302,-0.119,0.104,0.246,0.222,0.252,0.257,0.147,-0.003,-0.042,-0.044,0.08,0.11,0.119,0.148,0.163,0.294,0.419,0.571,0.686,0.667,0.703,0.746,0.753,0.839,0.772]
+  },
+  "stats":{"chgR":-0.151,"chgP":0.258,"totalReturn":5.9,"peakDate":"2025-10-07","peakScore":100,"minScore":18,"rollMin":-0.74,"rollMax":0.84,"lagNoise":true,"sigLags":2},
+  "lags":[{"lag":0,"r":-0.151,"p":0.258,"n":58},{"lag":1,"r":0.004,"p":0.979,"n":57},{"lag":2,"r":0.1,"p":0.464,"n":56},{"lag":3,"r":0.028,"p":0.843,"n":55},{"lag":4,"r":0.289,"p":0.034,"n":54},{"lag":5,"r":-0.294,"p":0.033,"n":53}]
+};
+window.FB2 = {
+  "meta":{"keyword":"AI stocks","ticker":"NVDA","label":"No. 002","period":"Apr-Jul 2026","windowStart":"2026-04-24","windowEnd":"2026-07-21","tradingDays":60,"calendarDays":89,"spanLabel":"3 months","hashes":{"trends":"5de0061367098295","prices":"7f9fce603d8f1669"}},
   "series":{
     "dates":["2026-04-24","2026-04-27","2026-04-28","2026-04-29","2026-04-30","2026-05-01","2026-05-04","2026-05-05","2026-05-06","2026-05-07","2026-05-08","2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15","2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22","2026-05-26","2026-05-27","2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-08","2026-06-09","2026-06-10","2026-06-11","2026-06-12","2026-06-15","2026-06-16","2026-06-17","2026-06-18","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-06","2026-07-07","2026-07-08","2026-07-09","2026-07-10","2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17","2026-07-20","2026-07-21"],
     "trend":[53,36,35,35,38,34,29,41,55,49,46,50,58,56,55,53,52,53,45,51,81,61,84,89,90,99,100,70,68,83,79,86,76,64,60,66,65,45,46,49,74,58,37,75,72,72,81,100,58,69,29,24,25,22,21,22,25,28,25,24],
@@ -18,49 +30,40 @@ window.FINBUZZ = {
     "price":[208.03,216.36,212.92,209.01,199.34,198.22,198.25,196.27,207.59,211.25,214.95,219.18,220.52,225.57,235.47,225.06,222.06,220.35,223.21,219.25,215.08,214.61,212.35,214,210.89,224.1,222.56,214.5,218.66,205.1,208.64,208.19,200.42,204.87,205.19,212.45,207.41,204.65,210.69,208.65,200.04,199,195.74,192.53,194.97,200.09,197.58,194.83,195.55,196.93,204.12,202.78,210.96,203.53,211.8,212.5,207.4,202.81,203.28,207.29],
     "rollCorr":[null,null,null,null,null,null,null,null,null,null,null,null,null,0.601,0.679,0.749,0.796,0.823,0.763,0.705,0.201,-0.127,-0.326,-0.513,-0.692,-0.514,-0.417,-0.381,-0.323,-0.28,-0.217,-0.189,0.083,0.395,0.46,0.519,0.536,0.557,0.512,0.337,-0.114,-0.067,0.185,0.02,-0.125,-0.298,-0.343,-0.452,-0.407,-0.494,-0.571,-0.55,-0.654,-0.709,-0.766,-0.783,-0.853,-0.832,-0.805,-0.812]
   },
-  "stats":{"levelR":0.067,"levelP":0.613,"chgR":-0.179,"chgP":0.175,"totalReturn":-0.4,"peakDate":"2026-06-02","peakScore":100,"minScore":21,"dipsBelow20":0,"rollMin":-0.85,"rollMax":0.82,"lagNoise":true,"sigLags":0,"artifactNote":"","crossCheck":null},
+  "stats":{"chgR":-0.179,"chgP":0.175,"totalReturn":-0.4,"peakDate":"2026-06-02","peakScore":100,"minScore":21,"rollMin":-0.85,"rollMax":0.82,"lagNoise":true,"sigLags":0},
   "lags":[{"lag":0,"r":-0.179,"p":0.175,"n":59},{"lag":1,"r":0.067,"p":0.619,"n":58},{"lag":2,"r":0.048,"p":0.723,"n":57},{"lag":3,"r":0.144,"p":0.288,"n":56},{"lag":4,"r":-0.194,"p":0.155,"n":55},{"lag":5,"r":0.248,"p":0.071,"n":54}]
 };
 </script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --paper:#F6F7F3;--card:#FFF;--ink:#14202E;--ink-soft:#5A6B7D;
-  --rule:#DCE0D6;--amber:#DD9526;--amber-soft:rgba(221,149,38,.12);
-  --green:#1F8A4C;--green-soft:rgba(31,138,76,.10);--red:#B4452F;
-  --serif:'IBM Plex Serif',Georgia,serif;
-  --sans:'IBM Plex Sans',-apple-system,sans-serif;
-  --mono:'IBM Plex Mono',monospace;
-}
+:root{--paper:#F6F7F3;--card:#FFF;--ink:#14202E;--ink-soft:#5A6B7D;--rule:#DCE0D6;--amber:#DD9526;--amber-soft:rgba(221,149,38,.12);--green:#1F8A4C;--green-soft:rgba(31,138,76,.10);--red:#B4452F;--serif:'IBM Plex Serif',Georgia,serif;--sans:'IBM Plex Sans',-apple-system,sans-serif;--mono:'IBM Plex Mono',monospace}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:var(--ink)}
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+a{color:var(--ink)}.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
 header{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}
 .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1060px;margin:0 auto}
-.mark{font:500 15px/1 var(--mono);letter-spacing:.08em;text-decoration:none}
-.mark b{color:var(--green)}
-nav{display:flex;gap:22px}
-nav a{font-size:13px;text-decoration:none;color:var(--ink-soft);letter-spacing:.02em}
-nav a:hover{color:var(--ink)}
+.mark{font:500 15px/1 var(--mono);letter-spacing:.08em;text-decoration:none}.mark b{color:var(--green)}
+nav{display:flex;gap:22px}nav a{font-size:13px;text-decoration:none;color:var(--ink-soft);letter-spacing:.02em}nav a:hover{color:var(--ink)}
 @media(max-width:640px){nav{display:none}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.anim{animation:fadeUp .6s ease both}
-.anim.d1{animation-delay:.1s}.anim.d2{animation-delay:.2s}.anim.d3{animation-delay:.3s}.anim.d4{animation-delay:.4s}
+.anim{animation:fadeUp .6s ease both}.anim.d1{animation-delay:.1s}.anim.d2{animation-delay:.2s}.anim.d3{animation-delay:.3s}.anim.d4{animation-delay:.4s}
 .hero{padding:56px 0 20px}
-.eyebrow{font:12px/1 var(--mono);letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:18px}
-.eyebrow em{font-style:normal;color:var(--amber)}
-h1{font:600 clamp(28px,4.4vw,48px)/1.12 var(--serif);letter-spacing:-.01em;max-width:20ch}
-h1 .buzz{color:var(--amber)}
-h1 .mkt{color:var(--green)}
-.dek{margin-top:16px;max-width:62ch;color:var(--ink-soft);font-size:17px}
+.eyebrow{font:12px/1 var(--mono);letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:18px}.eyebrow em{font-style:normal;color:var(--amber)}
+h1{font:600 clamp(28px,4.4vw,48px)/1.12 var(--serif);letter-spacing:-.01em;max-width:22ch}
+h1 .buzz{color:var(--amber)}h1 .mkt{color:var(--green)}
+.dek{margin-top:16px;max-width:66ch;color:var(--ink-soft);font-size:17px}
 .stats-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:28px}
-.stat-box{background:var(--card);padding:20px 22px}
-.stat-box .val{font:600 26px/1.1 var(--mono);margin-bottom:4px}
+.stat-box{background:var(--card);padding:20px 22px}.stat-box .val{font:600 26px/1.1 var(--mono);margin-bottom:4px}
 .stat-box .label{font:11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
 .stat-box .desc{font-size:13px;color:var(--ink-soft);margin-top:6px}
 .neg{color:var(--red)}.pos{color:var(--green)}.amb{color:var(--amber)}
-.card{background:var(--card);border:1px solid var(--rule);margin-top:30px}
+/* tabs */
+.tab-bar{display:flex;gap:0;margin-top:30px;border-bottom:2px solid var(--rule)}
+.tab{font:500 14px/1 var(--mono);padding:12px 20px 10px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;color:var(--ink-soft);background:none;border-top:none;border-left:none;border-right:none;transition:.15s}
+.tab.active{color:var(--ink);border-bottom-color:var(--ink)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+/* cards */
+.card{background:var(--card);border:1px solid var(--rule);margin-top:24px}
 .card-head{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:18px 22px 6px}
 .card-title{font:600 18px/1.3 var(--serif)}
 .legend{display:flex;gap:18px;font-size:13px;color:var(--ink-soft)}
@@ -73,15 +76,13 @@ h1 .mkt{color:var(--green)}
 .provenance .ok{color:var(--green)}
 section{padding:52px 0 8px}
 .sec-label{font:12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);border-top:1px solid var(--ink);padding-top:10px;margin-bottom:26px;display:flex;justify-content:space-between}
-h2{font:600 clamp(22px,3vw,30px)/1.2 var(--serif);max-width:24ch;margin-bottom:14px}
+h2{font:600 clamp(22px,3vw,30px)/1.2 var(--serif);max-width:26ch;margin-bottom:14px}
 .lede{color:var(--ink-soft);max-width:66ch}
 .ledger{margin-top:26px;border-top:1px solid var(--rule)}
 .row{display:grid;grid-template-columns:200px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid var(--rule)}
 @media(max-width:640px){.row{grid-template-columns:1fr;gap:8px}}
-.row .num{font:26px/1.2 var(--mono)}
-.row .num small{display:block;font-size:11px;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;margin-top:4px}
-.row h3{font:600 17px/1.3 var(--serif);margin-bottom:6px}
-.row p{color:var(--ink-soft);font-size:15px;max-width:64ch}
+.row .num{font:26px/1.2 var(--mono)}.row .num small{display:block;font-size:11px;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;margin-top:4px}
+.row h3{font:600 17px/1.3 var(--serif);margin-bottom:6px}.row p{color:var(--ink-soft);font-size:15px;max-width:64ch}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
 @media(max-width:820px){.duo{grid-template-columns:1fr}}
 .duo .chart-box{height:260px}
@@ -92,8 +93,7 @@ h2{font:600 clamp(22px,3vw,30px)/1.2 var(--serif);max-width:24ch;margin-bottom:1
 .report h3{font:600 22px/1.3 var(--serif);margin-bottom:14px;max-width:28ch}
 .report p{margin-bottom:12px;max-width:70ch}
 .report .pull{border-left:3px solid var(--amber);padding:4px 0 4px 18px;font:17px/1.5 var(--serif);margin:18px 0;max-width:60ch}
-.method li{margin:0 0 14px 20px;max-width:70ch}
-.method b{font-weight:600}
+.method li{margin:0 0 14px 20px;max-width:70ch}.method b{font-weight:600}
 code{font:0.88em var(--mono);background:var(--card);border:1px solid var(--rule);padding:1px 6px}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:22px}
 @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
@@ -103,72 +103,96 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:space-bet
 </style>
 </head>
 <body>
-<header>
-  <div class="bar">
-    <a class="mark" href="#top">FIN<b>BUZZ</b> ⌁</a>
-    <nav><a href="#findings">Findings</a><a href="#dashboard">Dashboard</a><a href="#report">Report</a><a href="#method">Method</a><a href="#about">About</a></nav>
-  </div>
-</header>
+<header><div class="bar"><a class="mark" href="#top">FIN<b>BUZZ</b> ⌁</a><nav><a href="#findings">Findings</a><a href="#dashboard">Dashboard</a><a href="#report">Report</a><a href="#method">Method</a><a href="#about">About</a></nav></div></header>
 <main id="top" class="wrap">
 <div class="hero">
-  <p class="eyebrow anim">Research note <em>No. 002</em> · Apr-Jul 2026 · 60 trading days</p>
-  <h1 class="anim d1">The internet <span class="buzz">buzzed</span> about AI stocks. <span class="mkt">NVIDIA's price</span> didn't care.</h1>
-  <p class="dek anim d2">FinBuzz is a self-built research engine that tests whether retail search attention moves markets. I pulled 3 months of US Google search interest in <b>"AI stocks"</b>, matched it to NVDA's daily price, and measured the relationship. The answer: attention peaked twice at 100, then collapsed to 21. NVDA ended exactly where it started.</p>
-
+  <p class="eyebrow anim">Two independent windows <em>119 trading days</em> · same keyword · same stock · same result</p>
+  <h1 class="anim d1">I tested it <span class="buzz">twice</span>. <span class="mkt">NVIDIA</span> ignored the buzz both times.</h1>
+  <p class="dek anim d2">FinBuzz tracks Google search interest in "AI stocks" against NVDA's daily price. The first window (Aug-Nov 2025) showed no relationship. Eight months later, I re-ran the analysis on fresh data (Apr-Jul 2026). The result replicated: attention peaked, crashed, reversed - and NVDA's price did its own thing entirely. Replication is what separates a finding from a fluke.</p>
   <div class="stats-strip anim d3">
-    <div class="stat-box"><div class="val neg">r = -0.179</div><div class="label">change correlation</div><div class="desc">Daily attention changes vs. price returns. Weak, not significant (p = 0.175).</div></div>
-    <div class="stat-box"><div class="val">-0.4%</div><div class="label">NVDA over window</div><div class="desc">$208.03 to $207.29. Flat despite attention swinging from 21 to 100.</div></div>
-    <div class="stat-box"><div class="val amb">0 of 6</div><div class="label">predictive lags</div><div class="desc">No lag reached statistical significance. Buzz predicts nothing here.</div></div>
-    <div class="stat-box"><div class="val">-0.85 to +0.82</div><div class="label">rolling correlation</div><div class="desc">The relationship flipped from strongly positive to strongly negative mid-window.</div></div>
+    <div class="stat-box"><div class="val neg">r = -0.151</div><div class="label">window 1 (2025)</div><div class="desc">Not significant (p = 0.258). NVDA gained +5.9% while attention faded from 100 to 18.</div></div>
+    <div class="stat-box"><div class="val neg">r = -0.179</div><div class="label">window 2 (2026)</div><div class="desc">Not significant (p = 0.175). NVDA flat (-0.4%) while attention spiked to 100 twice then crashed.</div></div>
+    <div class="stat-box"><div class="val amb">0 consistent</div><div class="label">predictive lags</div><div class="desc">No reliable lead-lag signal in either window. Two "significant" lags in window 1 had opposite signs.</div></div>
+    <div class="stat-box"><div class="val">119 days</div><div class="label">total evidence</div><div class="desc">Two independent 3-month windows. Different market conditions. Same null result.</div></div>
   </div>
 
-  <div class="card anim d4">
-    <div class="card-head">
-      <span class="card-title">Search attention vs. price</span>
-      <span class="legend">
-        <span><span class="key" style="background:var(--amber)"></span>"AI stocks" search score</span>
-        <span><span class="key" style="background:var(--green)"></span>NVDA close ($)</span>
-      </span>
-      <button class="toggle" id="smoothBtn" aria-pressed="false">Smooth (7-day avg)</button>
+  <div class="tab-bar anim d4">
+    <button class="tab active" data-tab="w2">Apr-Jul 2026 (latest)</button>
+    <button class="tab" data-tab="w1">Aug-Nov 2025 (original)</button>
+  </div>
+  <div class="tab-panel active" id="panel-w2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Window 2: Search attention vs. price</span>
+        <span class="legend"><span><span class="key" style="background:var(--amber)"></span>"AI stocks"</span><span><span class="key" style="background:var(--green)"></span>NVDA ($)</span></span>
+        <button class="toggle" id="smoothBtn2" aria-pressed="false">Smooth</button>
+      </div>
+      <div class="chart-box"><canvas id="chart2"></canvas></div>
+      <div class="provenance">WINDOW 2026-04-24 to 2026-07-21 · 60 trading days · SHA 5de00613 · 7f9fce60 <span class="ok">verified</span></div>
     </div>
-    <div class="chart-box"><canvas id="heroChart"></canvas></div>
-    <div class="provenance">SOURCE Google Trends (US, web) + yfinance · WINDOW 2026-04-24 to 2026-07-21 · SHA 5de00613 · 7f9fce60 <span class="ok">verified</span></div>
+  </div>
+  <div class="tab-panel" id="panel-w1">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Window 1: Search attention vs. price</span>
+        <span class="legend"><span><span class="key" style="background:var(--amber)"></span>"AI stocks"</span><span><span class="key" style="background:var(--green)"></span>NVDA ($)</span></span>
+        <button class="toggle" id="smoothBtn1" aria-pressed="false">Smooth</button>
+      </div>
+      <div class="chart-box"><canvas id="chart1"></canvas></div>
+      <div class="provenance">WINDOW 2025-08-25 to 2025-11-14 · 59 trading days · SHA 0ab6c6dd · 814401fc <span class="ok">verified</span></div>
+    </div>
   </div>
 </div>
 
 <section id="findings">
-  <div class="sec-label"><span>01 · Findings</span><span>what the data actually shows</span></div>
-  <h2>Three things I can defend in an interview</h2>
+  <div class="sec-label"><span>01 · Findings</span><span>replicated across two windows</span></div>
+  <h2>Four things I can defend in an interview</h2>
   <div class="ledger">
     <div class="row">
-      <div class="num neg">r = -0.179<small>change correlation</small></div>
-      <div><h3>Buzz and price moved independently</h3><p>Comparing day-to-day changes, search attention and NVDA returns showed a weak, statistically insignificant relationship (p = 0.175). Attention hit 100 on June 2 and again on July 2. NVDA went from $208.03 to $207.29 - essentially flat.</p></div>
+      <div class="num neg">-0.151 / -0.179<small>both windows</small></div>
+      <div><h3>Buzz and price moved independently - twice</h3><p>In window 1, NVDA gained 5.9% while attention faded. In window 2, NVDA was flat while attention spiked to 100 twice then crashed to the 20s. Both windows produced weak, non-significant correlations on daily changes. One window could be a fluke. Two is a pattern.</p></div>
     </div>
     <div class="row">
-      <div class="num amb">none<small>lead-lag signal</small></div>
-      <div><h3>Attention didn't predict tomorrow, either</h3><p>I tested whether attention leads price by 1-5 days. Not a single lag reached p &lt; .05. The closest was lag-5 at p = 0.071, but one near-miss out of six tests is exactly what chance produces.</p></div>
+      <div class="num amb">0 reliable<small>across 12 lag tests</small></div>
+      <div><h3>Attention didn't predict tomorrow in either window</h3><p>Window 1 produced two "significant" lags - with opposite signs (the fingerprint of noise). Window 2 produced zero. Twelve tests total, zero consistent predictive signals.</p></div>
     </div>
     <div class="row">
-      <div class="num">+0.82 to -0.85<small>rolling correlation swing</small></div>
-      <div><h3>The relationship flipped completely</h3><p>In early May, attention and price moved together (r = +0.82). By mid-July, they moved in opposite directions (r = -0.85). A real signal would hold steady. This one reversed itself - the signature of two unrelated series.</p></div>
+      <div class="num">+0.84 to -0.85<small>rolling correlation range</small></div>
+      <div><h3>The relationship reversed itself completely</h3><p>Both windows showed the rolling 14-day correlation swinging from strongly positive to strongly negative. In window 2, it went from +0.82 in May to -0.85 in July. A real signal doesn't flip sign every few weeks.</p></div>
+    </div>
+    <div class="row">
+      <div class="num pos">replicated<small>different conditions</small></div>
+      <div><h3>The null result survived different market regimes</h3><p>Window 1: NVDA rising (+5.9%), attention declining. Window 2: NVDA flat (-0.4%), attention spiking then crashing. Bull market, sideways market - the finding held. Most junior projects test once. This one tested twice.</p></div>
     </div>
   </div>
 </section>
 
 <section id="dashboard">
-  <div class="sec-label"><span>02 · Dashboard</span><span>look closer</span></div>
-  <h2>The relationship isn't just weak - it's unstable</h2>
-  <p class="lede">If attention genuinely drove price, the correlation would hold steady. Instead it swings from strongly positive to strongly negative mid-window.</p>
+  <div class="sec-label"><span>02 · Dashboard</span><span>both windows side by side</span></div>
+  <h2>The instability is the finding</h2>
+  <p class="lede">If search attention were a real price driver, the rolling correlation would stay positive (or negative) across both windows. Instead it wanders everywhere.</p>
   <div class="duo">
     <div class="card">
-      <div class="card-head"><span class="card-title">Rolling 14-day correlation</span></div>
-      <div class="chart-box"><canvas id="rollChart"></canvas></div>
-      <p class="caption">Swings from +0.82 to -0.85. Crossed zero four times. No stable relationship.</p>
+      <div class="card-head"><span class="card-title">Rolling correlation - 2026</span></div>
+      <div class="chart-box"><canvas id="roll2"></canvas></div>
+      <p class="caption">+0.82 to -0.85. Crossed zero four times.</p>
     </div>
     <div class="card">
-      <div class="card-head"><span class="card-title">Does attention lead price? (lag test)</span></div>
-      <div class="chart-box"><canvas id="lagChart"></canvas></div>
-      <p class="caption">Correlation between today's attention change and the price return k days later. Nothing reached significance.</p>
+      <div class="card-head"><span class="card-title">Rolling correlation - 2025</span></div>
+      <div class="chart-box"><canvas id="roll1"></canvas></div>
+      <p class="caption">-0.74 to +0.84. Crossed zero three times.</p>
+    </div>
+  </div>
+  <div class="duo">
+    <div class="card">
+      <div class="card-head"><span class="card-title">Lag test - 2026</span></div>
+      <div class="chart-box"><canvas id="lag2"></canvas></div>
+      <p class="caption">Zero lags reached significance.</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-title">Lag test - 2025</span></div>
+      <div class="chart-box"><canvas id="lag1"></canvas></div>
+      <p class="caption">Two lags crossed p &lt; .05 with opposite signs = noise.</p>
     </div>
   </div>
 </section>
@@ -176,26 +200,29 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:space-bet
 <section id="report">
   <div class="sec-label"><span>03 · Insight report</span><span>the write-up</span></div>
   <article class="report">
-    <div class="rhead"><span>FinBuzz insight - No. 002</span><span>Apr-Jul 2026</span></div>
-    <h3>Attention peaked. Price shrugged.</h3>
-    <p><b>What happened.</b> Between 24 April and 21 July 2026, US search interest in "AI stocks" spiked twice to 100 (June 2 and July 2), then collapsed to the low 20s by mid-July. NVDA, meanwhile, ended almost exactly where it started: $208.03 to $207.29 (-0.4%). Day-to-day, the two series were statistically unrelated (r = -0.179, p = 0.175).</p>
-    <p><b>What it means.</b> This window is especially telling because it contains a clear attention narrative - a rise, a double peak, a crash - while the stock stayed flat. If retail search interest were a price driver, this is exactly where you'd expect to see it. Instead, NVDA's price was set by institutional flows, earnings expectations, and broader market forces that have nothing to do with how many people Google "AI stocks."</p>
-    <p class="pull">The most interesting finding isn't the correlation. It's the rolling correlation flipping from +0.82 to -0.85 - proof that the relationship has no structural basis.</p>
-    <p><b>What would make the signal stronger.</b> Ticker-specific terms ("NVDA stock"), event windows around earnings dates, and volume-weighted comparison are the next iterations.</p>
-    <p><b>What this is not.</b> Not investment advice, not a trading system, and not a claim about any period outside the stated window. Correlation, even when found, is not causation.</p>
+    <div class="rhead"><span>FinBuzz combined insight</span><span>2025 + 2026</span></div>
+    <h3>Tested once, it's a finding. Tested twice, it's evidence.</h3>
+    <p><b>Window 1 (Aug-Nov 2025).</b> Search interest in "AI stocks" peaked at 100 in early October, then declined steadily to 18 by mid-November. NVDA, ignoring the fading buzz entirely, climbed from $128.74 to $136.37 (+5.9%). The daily-change correlation was r = -0.151, not significant.</p>
+    <p><b>Window 2 (Apr-Jul 2026).</b> Attention told a different story - it started low, spiked to 100 twice (June 2 and July 2), then collapsed to the low 20s. NVDA ended almost exactly where it started: $208.03 to $207.29 (-0.4%). The daily-change correlation was r = -0.179, also not significant.</p>
+    <p class="pull">Two windows, two different attention narratives, two different market conditions, one consistent result: retail search buzz does not move this stock.</p>
+    <p><b>The rolling correlation is the sharpest evidence.</b> In both windows, the 14-day rolling correlation swung from strongly positive to strongly negative. Window 2 is especially striking: it started at +0.82 in May (attention rising, price rising) and ended at -0.85 in July (attention falling, price recovering). A relationship that reverses every few weeks is not a relationship.</p>
+    <p><b>Why the null result matters.</b> Knowing which signals to ignore is half of analysis. A system that correctly identifies "this popular indicator has no edge" is more useful than one that hallucinates patterns. FinBuzz's value isn't the correlation - it's the methodology that honestly reports the correlation.</p>
+    <p><b>What would change the conclusion.</b> Ticker-specific keywords ("NVDA stock"), event windows around earnings, volume-weighted analysis, and testing across different asset classes. Each is supported by the pipeline.</p>
+    <p><b>What this is not.</b> Not investment advice, not a trading system, and not a universal claim. These are two specific windows for one keyword and one stock. The finding is narrow, honest, and reproducible.</p>
   </article>
 </section>
 
 <section id="method">
   <div class="sec-label"><span>04 · Method and limitations</span><span>how to check my work</span></div>
-  <h2>Every number here is reproducible</h2>
+  <h2>Every number is reproducible</h2>
   <ol class="method" style="margin-top:20px">
-    <li><b>Sources.</b> Attention: official Google Trends export (US, web search, 3-month custom range). Prices: yfinance adjusted close. Raw files hashed (SHA-256) and published.</li>
-    <li><b>Alignment.</b> Series are inner-joined on date. 89 calendar days become 60 trading days (weekends and holidays removed by design).</li>
-    <li><b>Statistics.</b> Correlations computed on daily percentage changes, not raw levels, to avoid spurious trending-series correlation. Every correlation recomputed two independent ways; pipeline refuses to publish if they disagree.</li>
-    <li><b>Known limitation - sampling variance.</b> Google Trends scores are relative (100 = that window's peak) and re-sampled per request. Different pulls of the same query can differ by a few points.</li>
-    <li><b>Known limitation - keyword breadth.</b> "AI stocks" measures interest in a theme, not NVDA specifically. The pipeline supports keyword baskets for future reports.</li>
-    <li><b>Multiple-comparison honesty.</b> Six lag tests at p &lt; .05 are expected to yield ~0.3 false positives by chance. No lags reached significance in this window.</li>
+    <li><b>Sources.</b> Window 1: Google Trends export + Yahoo Finance adjusted close. Window 2: Google Trends export + yfinance adjusted close. All raw files hashed (SHA-256) and committed to the repo.</li>
+    <li><b>Alignment.</b> Inner join on date. 93 calendar days became 59 trading days (window 1). 89 calendar days became 60 trading days (window 2).</li>
+    <li><b>Statistics.</b> Correlations on daily percentage changes, not raw levels. Each correlation computed two independent ways; pipeline refuses to publish if they disagree.</li>
+    <li><b>Replication design.</b> The two windows were chosen to be non-overlapping and separated by five months. Different market regimes (rising vs flat) make the null result more robust.</li>
+    <li><b>Known limitation - sampling variance.</b> Google Trends scores are relative (100 = window peak) and re-sampled per request. Window 1's cross-check found two pulls disagreed on 31 of 59 dates by up to 2 points.</li>
+    <li><b>Known limitation - keyword breadth.</b> "AI stocks" measures interest in a theme, not NVDA specifically.</li>
+    <li><b>Multiple-comparison honesty.</b> Twelve lag tests across two windows. Two crossed p &lt; .05 in window 1 with opposite signs = noise. Zero crossed in window 2.</li>
   </ol>
 </section>
 
@@ -204,40 +231,49 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:space-bet
   <div class="about-grid">
     <div>
       <h2 style="max-width:100%">A self-assigned analyst internship</h2>
-      <p>I built FinBuzz to do the work before anyone hired me to do it: collect real data, verify it, analyse it honestly, and publish the result - the weekly rhythm of a junior research or strategy analyst.</p>
-      <p>Everything on this page - the pipeline, the statistics, the charts, the write-up - was built from zero, documented so that every line can be explained, and designed to be re-run in twenty minutes with fresh data.</p>
+      <p>I built FinBuzz to do the work before anyone hired me to do it: collect real data, verify it, analyse it honestly, and publish the result.</p>
+      <p>Then I did the thing most junior projects skip: I ran it again on fresh data and checked whether the finding held. It did.</p>
     </div>
     <div>
       <h3 style="font:17px/1.3 var(--serif);margin-bottom:10px">What this demonstrates</h3>
-      <p><b>Data discipline</b> - provenance logs, file hashing, integrity gates that block bad data from publishing.</p>
-      <p><b>Statistical judgment</b> - percentage changes over levels, lag testing, and the restraint to call noise "noise."</p>
-      <p><b>Communication</b> - findings a non-technical reader can follow, with the caveats a technical reader would demand.</p>
+      <p><b>Data discipline</b> - provenance logs, file hashing, integrity gates that block bad data.</p>
+      <p><b>Statistical judgment</b> - percentage changes over levels, lag testing, the restraint to call noise "noise."</p>
+      <p><b>Replication mindset</b> - tested the finding a second time under different conditions.</p>
+      <p><b>Communication</b> - findings a non-technical reader can follow, with the caveats a technical reader demands.</p>
     </div>
   </div>
 </section>
 </main>
-<footer><div class="wrap">
-  <span>FINBUZZ research note No. 002</span>
-  <span>data sha256 5de00613 · 7f9fce60</span>
-  <span>Educational project - not investment advice</span>
-</div></footer>
+<footer><div class="wrap"><span>FINBUZZ research notes No. 001 + 002</span><span>Educational project - not investment advice</span></div></footer>
 <script>
 (function(){
-  const D=window.FINBUZZ;if(!D)return;
   const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const AMBER=css('--amber'),GREEN=css('--green'),INK=css('--ink'),SOFT=css('--ink-soft'),RED=css('--red'),RULE=css('--rule');
   Chart.defaults.font.family="'IBM Plex Sans',sans-serif";Chart.defaults.color=SOFT;
-  const dates=D.series.dates;
-  const monthTick=(v,i)=>{const d=dates[i];if(!d)return'';return(i===0||d.slice(5,7)!==dates[i-1]?.slice(5,7))?new Date(d+'T00:00:00').toLocaleDateString('en-GB',{month:'short'}):''};
-  const xAxis={grid:{display:false},ticks:{callback:monthTick,autoSkip:false,maxRotation:0,font:{family:"'IBM Plex Mono'",size:11}}};
-  const trendRaw={label:'Search score',data:D.series.trend,borderColor:AMBER,backgroundColor:'rgba(221,149,38,.10)',fill:true,borderWidth:2,pointRadius:0,pointHoverRadius:4,tension:.25,yAxisID:'yT'};
-  const trendSmooth={label:'7d avg',data:D.series.trendMa7,borderColor:AMBER,backgroundColor:'rgba(221,149,38,.10)',fill:true,borderWidth:2.5,pointRadius:0,pointHoverRadius:4,tension:.35,yAxisID:'yT'};
-  const priceLine={label:'NVDA ($)',data:D.series.price,borderColor:GREEN,borderWidth:2.5,pointRadius:0,pointHoverRadius:4,tension:.2,yAxisID:'yP'};
-  const hero=new Chart(document.getElementById('heroChart'),{type:'line',data:{labels:dates,datasets:[trendRaw,priceLine]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:INK,titleFont:{family:"'IBM Plex Mono'"},bodyFont:{family:"'IBM Plex Mono'"},padding:10,cornerRadius:2}},scales:{x:xAxis,yT:{position:'left',min:0,max:105,grid:{color:RULE},title:{display:true,text:'search score (0-100)',color:AMBER,font:{family:"'IBM Plex Mono'",size:11}},ticks:{font:{family:"'IBM Plex Mono'",size:11}}},yP:{position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'NVDA $',color:GREEN,font:{family:"'IBM Plex Mono'",size:11}},ticks:{callback:v=>'$'+v,font:{family:"'IBM Plex Mono'",size:11}}}}}});
-  document.getElementById('smoothBtn').addEventListener('click',function(){const on=this.getAttribute('aria-pressed')==='true';this.setAttribute('aria-pressed',String(!on));hero.data.datasets[0]=on?trendRaw:trendSmooth;hero.update()});
-  new Chart(document.getElementById('rollChart'),{type:'line',data:{labels:dates,datasets:[{data:D.series.rollCorr,borderColor:INK,borderWidth:2,pointRadius:0,pointHoverRadius:3,tension:.3,spanGaps:false,segment:{borderColor:c=>(c.p1.parsed.y??0)>=0?GREEN:RED},fill:{target:{value:0}},backgroundColor:'rgba(31,138,76,.08)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:INK,callbacks:{label:c=>' r = '+(c.parsed.y==null?'-':c.parsed.y.toFixed(2))}}},scales:{x:xAxis,y:{min:-1,max:1,grid:{color:c=>c.tick.value===0?INK:RULE,lineWidth:c=>c.tick.value===0?1.5:1},ticks:{stepSize:.5,font:{family:"'IBM Plex Mono'",size:11}}}}}});
-  new Chart(document.getElementById('lagChart'),{type:'bar',data:{labels:D.lags.map(L=>L.lag+'d'),datasets:[{data:D.lags.map(L=>L.r),backgroundColor:D.lags.map(L=>L.p<.05?(L.r>=0?GREEN:RED):RULE),borderColor:D.lags.map(L=>L.r>=0?GREEN:RED),borderWidth:1.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:INK,callbacks:{label:c=>{const L=D.lags[c.dataIndex];return` r=${L.r} p=${L.p} n=${L.n}`}}}},scales:{x:{grid:{display:false},title:{display:true,text:'days later',font:{family:"'IBM Plex Mono'",size:11}},ticks:{font:{family:"'IBM Plex Mono'",size:11}}},y:{min:-.4,max:.4,grid:{color:c=>c.tick.value===0?INK:RULE,lineWidth:c=>c.tick.value===0?1.5:1},ticks:{font:{family:"'IBM Plex Mono'",size:11}}}}}});
+  function mTick(dates){return(v,i)=>{const d=dates[i];if(!d)return'';return(i===0||d.slice(5,7)!==dates[i-1]?.slice(5,7))?new Date(d+'T00:00:00').toLocaleDateString('en-GB',{month:'short'}):''}}
+  function xA(dates){return{grid:{display:false},ticks:{callback:mTick(dates),autoSkip:false,maxRotation:0,font:{family:"'IBM Plex Mono'",size:11}}}}
+  function makeMain(canvasId,D,smoothBtnId){
+    const raw={label:'Search',data:D.series.trend,borderColor:AMBER,backgroundColor:'rgba(221,149,38,.10)',fill:true,borderWidth:2,pointRadius:0,pointHoverRadius:4,tension:.25,yAxisID:'yT'};
+    const smooth={label:'7d avg',data:D.series.trendMa7,borderColor:AMBER,backgroundColor:'rgba(221,149,38,.10)',fill:true,borderWidth:2.5,pointRadius:0,pointHoverRadius:4,tension:.35,yAxisID:'yT'};
+    const price={label:'NVDA ($)',data:D.series.price,borderColor:GREEN,borderWidth:2.5,pointRadius:0,pointHoverRadius:4,tension:.2,yAxisID:'yP'};
+    const c=new Chart(document.getElementById(canvasId),{type:'line',data:{labels:D.series.dates,datasets:[raw,price]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:INK,titleFont:{family:"'IBM Plex Mono'"},bodyFont:{family:"'IBM Plex Mono'"},padding:10,cornerRadius:2}},scales:{x:xA(D.series.dates),yT:{position:'left',min:0,max:105,grid:{color:RULE},title:{display:true,text:'search (0-100)',color:AMBER,font:{family:"'IBM Plex Mono'",size:11}},ticks:{font:{family:"'IBM Plex Mono'",size:11}}},yP:{position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'NVDA $',color:GREEN,font:{family:"'IBM Plex Mono'",size:11}},ticks:{callback:v=>'$'+v,font:{family:"'IBM Plex Mono'",size:11}}}}}});
+    document.getElementById(smoothBtnId).addEventListener('click',function(){const on=this.getAttribute('aria-pressed')==='true';this.setAttribute('aria-pressed',String(!on));c.data.datasets[0]=on?raw:smooth;c.update()});
+  }
+  function makeRoll(id,D){new Chart(document.getElementById(id),{type:'line',data:{labels:D.series.dates,datasets:[{data:D.series.rollCorr,borderColor:INK,borderWidth:2,pointRadius:0,pointHoverRadius:3,tension:.3,spanGaps:false,segment:{borderColor:c=>(c.p1.parsed.y??0)>=0?GREEN:RED},fill:{target:{value:0}},backgroundColor:'rgba(31,138,76,.08)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:INK,callbacks:{label:c=>' r = '+(c.parsed.y==null?'-':c.parsed.y.toFixed(2))}}},scales:{x:xA(D.series.dates),y:{min:-1,max:1,grid:{color:c=>c.tick.value===0?INK:RULE,lineWidth:c=>c.tick.value===0?1.5:1},ticks:{stepSize:.5,font:{family:"'IBM Plex Mono'",size:11}}}}}});}
+  function makeLag(id,D){new Chart(document.getElementById(id),{type:'bar',data:{labels:D.lags.map(L=>L.lag+'d'),datasets:[{data:D.lags.map(L=>L.r),backgroundColor:D.lags.map(L=>L.p<.05?(L.r>=0?GREEN:RED):RULE),borderColor:D.lags.map(L=>L.r>=0?GREEN:RED),borderWidth:1.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:INK,callbacks:{label:c=>{const L=D.lags[c.dataIndex];return` r=${L.r} p=${L.p}`}}}},scales:{x:{grid:{display:false},ticks:{font:{family:"'IBM Plex Mono'",size:11}}},y:{min:-.4,max:.4,grid:{color:c=>c.tick.value===0?INK:RULE,lineWidth:c=>c.tick.value===0?1.5:1},ticks:{font:{family:"'IBM Plex Mono'",size:11}}}}}});}
+  // Build all charts
+  makeMain('chart2',FB2,'smoothBtn2');makeMain('chart1',FB1,'smoothBtn1');
+  makeRoll('roll2',FB2);makeRoll('roll1',FB1);
+  makeLag('lag2',FB2);makeLag('lag1',FB1);
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('panel-'+this.dataset.tab).classList.add('active');
+  }));
 })();
 </script>
 </body>
 </html>
+
