@@ -1,0 +1,109 @@
+{
+  "project": "FinBuzz",
+  "tagline": "Testing what the market actually listens to",
+  "last_updated": "2026-09-01",
+  "windows": [
+    {
+      "id": "W1",
+      "label": "Window 1",
+      "period": "Aug 25 - Nov 14, 2025",
+      "granularity": "daily",
+      "trading_days": 59,
+      "keyword": "AI stocks",
+      "ticker": "NVDA",
+      "correlation_r": -0.151,
+      "correlation_p": 0.258,
+      "significant": false,
+      "nvda_return_pct": 5.9,
+      "trend_peak": 100,
+      "trend_low": 18,
+      "roll_corr_min": -0.74,
+      "roll_corr_max": 0.84,
+      "lag_tests": 6,
+      "reliable_lags": 0,
+      "lag_note": "Two crossed p<.05 with opposite signs (noise fingerprint)"
+    },
+    {
+      "id": "W2",
+      "label": "Window 2",
+      "period": "Apr 24 - Jul 21, 2026",
+      "granularity": "daily",
+      "trading_days": 60,
+      "keyword": "AI stocks",
+      "ticker": "NVDA",
+      "correlation_r": -0.179,
+      "correlation_p": 0.175,
+      "significant": false,
+      "nvda_return_pct": -0.4,
+      "trend_peak": 100,
+      "trend_low": 21,
+      "roll_corr_min": -0.85,
+      "roll_corr_max": 0.82,
+      "lag_tests": 6,
+      "reliable_lags": 0,
+      "lag_note": "No lags crossed p<.05"
+    },
+    {
+      "id": "FY",
+      "label": "Full Year",
+      "period": "Jul 20, 2025 - Jul 19, 2026",
+      "granularity": "weekly",
+      "data_points": 53,
+      "keyword": "AI stocks",
+      "ticker": "NVDA",
+      "correlation_r": -0.062,
+      "correlation_p": 0.661,
+      "significant": false,
+      "nvda_return_pct": 18.8,
+      "trend_peak": 100,
+      "trend_low": 27,
+      "roll_corr_min": -0.62,
+      "roll_corr_max": 0.71,
+      "lag_tests": 4,
+      "reliable_lags": 0,
+      "lag_note": "No lags crossed p<.05"
+    }
+  ],
+  "combined": {
+    "total_data_points": 172,
+    "total_lag_tests": 16,
+    "reliable_predictive_signals": 0,
+    "market_regimes_tested": ["rising (+5.9%)", "flat (-0.4%)", "rallying (+18.8%)"],
+    "roll_corr_full_range": "+0.84 to -0.85",
+    "confounding_variable_identified": true,
+    "confounding_variable_description": "Every co-movement between search attention and price traces to a shared news event (earnings, Fed decision, competitive threat) that caused both"
+  },
+  "earnings_pattern": {
+    "description": "Five consecutive NVDA earnings beats, Aug 2025 to Aug 2026",
+    "beats": 5,
+    "post_earnings_drops": 3,
+    "conclusion": "Stock dropped after 3 of 5 beats despite massive revenue growth ($46.7B to $96.2B). Search attention spiked around every earnings date. Price direction was inconsistent. Earnings drove both searches and price; searches were bystanders.",
+    "events": [
+      {"date": "2025-08-27", "quarter": "Q2 FY2026", "revenue": "$46.74B", "beat": true, "price_reaction": "fell 3.6%"},
+      {"date": "2025-11-19", "quarter": "Q3 FY2026", "eps_actual": "$1.30", "eps_expected": "$1.26", "beat": true, "price_reaction": "dropped 2.2%"},
+      {"date": "2026-02-25", "quarter": "Q4 FY2026", "eps_actual": "$1.62", "eps_expected": "$1.54", "beat": true, "price_reaction": "near $191"},
+      {"date": "2026-05-27", "quarter": "Q1 FY2027", "beat": true, "price_reaction": "hit $235 high"},
+      {"date": "2026-08-26", "quarter": "Q2 FY2027", "revenue": "$96.22B", "eps_actual": "$2.22", "eps_expected": "$2.09", "beat": true, "price_reaction": "fell 1.8% then rallied 6.8% next day (+$295.7B market cap)"}
+    ]
+  },
+  "event_timeline_count": 13,
+  "event_sources": [
+    "SEC EDGAR 8-K filings",
+    "federalreserve.gov FOMC statements",
+    "Federal Register (EO 14365)",
+    "NVIDIA Newsroom (nvidianews.nvidia.com)",
+    "Reuters",
+    "CNBC",
+    "EU Parliament provisional agreements",
+    "White House policy briefs"
+  ],
+  "methodology": {
+    "correlation_method": "Pearson on daily percentage changes",
+    "dual_computation": "scipy.stats.pearsonr AND pandas .corr()",
+    "integrity_gate": "Pipeline refuses to publish if dual computation disagrees",
+    "normalization_disclosed": true,
+    "sampling_variance_documented": true,
+    "multiple_comparison_honesty": true,
+    "file_hashing": "SHA-256 on all raw data files"
+  }
+}
